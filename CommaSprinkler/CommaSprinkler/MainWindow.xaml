@@ -1,0 +1,28 @@
+﻿<!--Group 3-->
+  <Window x:Class="CommaSprinkler.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CommaSprinkler"
+        mc:Ignorable="d"
+        Title="Comma Sprinkler" Height="200" Width="800">
+  <Grid Background="#FFEAEAEA">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="30"/>
+      <RowDefinition Height="2*"/>
+    </Grid.RowDefinitions>
+    <!--providing layout panel where the last child element fills the remaining space. Columns not defined because dock panel takes care of layout-->
+    <DockPanel Grid.Row="0">
+      <Button Grid.Row="2" Padding="10,0,10,0"
+              Margin="10,0,0,0" Content="Show" DockPanel.Dock="Right"
+              FontSize="18" FontWeight="Bold" Command="{Binding ProcessFileCommand}"/>
+      <Button Grid.Row="0" Padding="10,0,10,0" 
+              Margin="10,0,0,0" Content="Select File" DockPanel.Dock="Right"
+              FontSize="18" FontWeight="Bold" Command="{Binding SelectFileCommand}"/>
+      <TextBox Grid.Row="0" FontSize="18" DockPanel.Dock="Left" Text="{Binding FileName}"/>
+    </DockPanel>
+    <!--providing the output space with a scroll bar to appear when it gets full. Allows reading not input-->
+    <TextBox Grid.Row="1" FontSize="20" TextWrapping="WrapWithOverflow" IsReadOnly="True" Margin="0,10,0,0" VerticalScrollBarVisibility="Auto" Text="{Binding Output}"/>
+  </Grid>
+</Window>
